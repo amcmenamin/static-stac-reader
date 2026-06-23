@@ -1,0 +1,43 @@
+<ArcGIS defaultAssembly="arcgis_stac" defaultNamespace="arcgis_stac"
+        xmlns="http://schemas.esri.com/DADF/Registry"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+
+  <AddInInfo id="{63e76264-913b-4420-af17-4c9eb5b0e4ed}" version="0.1.0" desktopVersion="3.0">
+    <Name>ArcGIS STAC Browser</Name>
+    <Description>Browse STAC catalogs via a Cloud Store connection file and add imagery to maps.</Description>
+    <Author></Author>
+    <Company></Company>
+    <Date>2026-06-23</Date>
+    <Subject>Imagery;STAC;Cloud</Subject>
+  </AddInInfo>
+
+  <modules>
+    <insertModule id="arcgis_stac_module" className="Module1" autoLoad="false" caption="STAC Browser">
+
+      <groups>
+        <!-- Inserted into the Map tab of the ribbon -->
+        <insertGroup id="arcgis_stac_group" caption="STAC" tabID="esri_mapping_homeTab">
+          <button refID="arcgis_stac_openBrowser" size="large" />
+        </insertGroup>
+      </groups>
+
+      <controls>
+        <button id="arcgis_stac_openBrowser"
+                caption="Browse STAC"
+                className="read_stac.OpenSTACBrowserButton"
+                loadOnClick="true"
+                smallImage="images\stac_button_16.png"
+                largeImage="images\stac_button_32.png"
+                condition="esri_mapping_mapPane">
+          <tooltip heading="Browse STAC Catalog">
+            Select a Cloud Store (.acs) connection file, browse collections and items from the
+            STAC catalog, and add selected imagery assets to the active map.
+          </tooltip>
+        </button>
+      </controls>
+
+    </insertModule>
+  </modules>
+
+</ArcGIS>
